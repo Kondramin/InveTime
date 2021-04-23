@@ -14,7 +14,7 @@ namespace InveTime.DataBase.DLL.Context
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Position> Positions { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<TypeProduct> TypeProduct { get; set; }
+        public DbSet<TypeProduct> TypeProducts { get; set; }
         public DbSet<DateInventarisation> DateInventarisations { get; set; }
 
 
