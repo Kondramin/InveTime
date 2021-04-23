@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace InveTime.DataBase.DLL.Context
 {
-    class InveTimeDB : DbContext
+    public class InveTimeDB : DbContext
     {
 
 
