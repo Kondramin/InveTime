@@ -1,4 +1,5 @@
-﻿using InveTime.DataBase.DLL.Context;
+﻿using InveTime.DataBase.DLL;
+using InveTime.DataBase.DLL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +17,7 @@ namespace InveTime.Data
                 else throw new InvalidOperationException($"Тип подключения {type} не поддерживается");
             })
             .AddTransient<DbInitializer>()
+            .AddRepositoriesInDb()
             ;
     }
 }
