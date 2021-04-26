@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using InveTime.ViewModels;
+using System.Windows;
 
 namespace InveTime
 {
@@ -6,5 +7,6 @@ namespace InveTime
     public partial class MainWindow : Window
     {
         public MainWindow() => InitializeComponent();
+
     }
 }
