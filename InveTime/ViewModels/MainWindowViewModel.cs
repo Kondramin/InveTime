@@ -10,20 +10,59 @@ namespace InveTime.ViewModels
 {
     class MainWindowViewModel
     {
-        private readonly IRepository<TypeProduct> _TypeProductRepository;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //private readonly IRepository<TypeProduct> _TypeProductRepository;
 
         
-        public MainWindowViewModel()
-        {
+        //public MainWindowViewModel()
+        //{
 
-        }
+        //}
 
-        public MainWindowViewModel(IRepository<TypeProduct> TypeProductRepository)
-        {
-            _TypeProductRepository = TypeProductRepository;
+        //public MainWindowViewModel(IRepository<TypeProduct> TypeProductRepository)
+        //{
+        //    _TypeProductRepository = TypeProductRepository;
 
 
-            var tupeprod = TypeProductRepository.Items.Take(10).ToList();
-        }
+        //    var tupeprod = TypeProductRepository.Items.Take(10).ToList();
+        //}
     }
 }
