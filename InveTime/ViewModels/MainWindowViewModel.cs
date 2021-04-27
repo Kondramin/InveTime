@@ -1,18 +1,21 @@
-﻿using InveTime.DataBase.DLL.Entityes;
-using InveTime.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using InveTime.ViewModels.Base;
 
 namespace InveTime.ViewModels
 {
-    class MainWindowViewModel
+    class MainWindowViewModel : ViewModel
     {
 
+        #region string MainWindow Title
 
+        private string _Title;
+        /// <summary>MainWindow Title</summary>
+        public string Title
+        {
+            get => _Title;
+            set => Set(ref _Title, value);
+        }
 
+        #endregion
 
 
 
@@ -51,7 +54,7 @@ namespace InveTime.ViewModels
 
         //private readonly IRepository<TypeProduct> _TypeProductRepository;
 
-        
+
         //public MainWindowViewModel()
         //{
 
