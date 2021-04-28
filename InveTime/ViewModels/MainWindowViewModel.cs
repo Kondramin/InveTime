@@ -5,9 +5,9 @@ namespace InveTime.ViewModels
     class MainWindowViewModel : ViewModel
     {
 
-        #region string MainWindow Title
+        #region string MainWindow Title  = "InveTime"
 
-        private string _Title;
+        private string _Title = "InveTime";
         /// <summary>MainWindow Title</summary>
         public string Title
         {
