@@ -26,7 +26,7 @@
                 </MenuItem>
                 <Separator />
                 <MenuItem Header="Сменить пользователя" ></MenuItem>
-                <MenuItem Header="Выход"></MenuItem>
+                <MenuItem Header="Выход" Command="{Binding CloseAppCommand}"></MenuItem>
             </MenuItem>
             <MenuItem Header="Инвертаризация" >
                 <MenuItem Header="Начать инвентаризацию"></MenuItem>
