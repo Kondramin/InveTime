@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace InveTime.DataBase.DLL.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -55,6 +55,7 @@ namespace InveTime.DataBase.DLL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Login = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PositionId = table.Column<int>(type: "int", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SecondName = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -147,8 +148,8 @@ namespace InveTime.DataBase.DLL.Migrations
 
             migrationBuilder.InsertData(
                 table: "Employees",
-                columns: new[] { "Id", "Login", "Name", "Password", "Patronymic", "PositionId", "SecondName" },
-                values: new object[] { 1, "Admin", "Admin", "Admin", null, 1, "Admin" });
+                columns: new[] { "Id", "Email", "Login", "Name", "Password", "Patronymic", "PositionId", "SecondName" },
+                values: new object[] { 1, null, "Admin", "Admin", "Admin", null, 1, "Admin" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Employees_PositionId",
