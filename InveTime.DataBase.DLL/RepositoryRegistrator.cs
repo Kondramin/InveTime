@@ -7,9 +7,9 @@ namespace InveTime.DataBase.DLL
     public static class RepositoryRegistrator
     {
         public static IServiceCollection AddRepositoriesInDb(this IServiceCollection services) => services
-            .AddTransient<IRepository<Employee>, DbRepository<Employee>>()
+            .AddTransient<IRepository<Employee>, EmployeeRepository>()
             .AddTransient<IRepository<Position>, DbRepository<Position>>()
-            .AddTransient<IRepository<Product>, DbRepository<Product>>()
+            .AddTransient<IRepository<Product>, ProductRepository>()
             .AddTransient<IRepository<TypeProduct>, DbRepository<TypeProduct>>()
             .AddTransient<IRepository<DateInventarisation>, DbRepository<DateInventarisation>>()
             ;

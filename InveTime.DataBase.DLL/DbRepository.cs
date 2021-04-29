@@ -26,7 +26,7 @@ namespace InveTime.DataBase.DLL
 
 
 
-        public IQueryable<T> Items => _Set;
+        public virtual IQueryable<T> Items => _Set;
 
         public T Add(T item)
         {

@@ -1,5 +1,8 @@
 ﻿using InveTime.Commands.Base;
+using InveTime.DataBase.DLL.Entityes;
+using InveTime.Interfaces;
 using InveTime.ViewModels.Base;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 
@@ -51,15 +54,16 @@ namespace InveTime.ViewModels
         public MainWindowViewModel()
         {
 
+            
             #region Commands
 
-            
+
             CloseAppCommand = new LambdaCommand(OnCloseAppCommandExequted, CanCloseAppCommandExequte);
 
 
             #endregion
 
-
+            
         }
 
 
