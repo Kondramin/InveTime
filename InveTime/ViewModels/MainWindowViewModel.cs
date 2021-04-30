@@ -5,6 +5,7 @@ using InveTime.ViewModels.Base;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using InveTime.Services;
 
 namespace InveTime.ViewModels
 {
@@ -63,7 +64,15 @@ namespace InveTime.ViewModels
 
             #endregion
 
-            
+            string filePath = @"D:\TestList.xlsx";
+
+            var test = ExeleParser.ImportExceltoDatatable(filePath);
+            var test2 = ExeleParser.ImportExceltoDatatable(filePath);
+            var test3 = ExeleParser.ImportExceltoDatatable(filePath);
+
+
+
+
         }
 
 
