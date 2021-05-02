@@ -1,42 +1,73 @@
 ﻿using ClosedXML.Excel;
+using System;
 using System.Data;
 
 namespace InveTime.Services
 {
-    static class ExeleParser
+    class ExeleParser
     {
-        //ClosedXML
-        public static string[,] ImportExceltoDatatable(string filePath)
+        public static DataTable GetDataFromExcel(string path)
         {
-                                                                        
-            using (var workBook = new XLWorkbook(filePath))
+            //Save the uploaded Excel file.
+
+
+            var dt = new DataTable();
+            //Open the Excel file using ClosedXML.
+            using (var workBook = new XLWorkbook(path))
             {
-                                                                        
+                //Read the first Sheet from Excel file.
                 var workSheet = workBook.Worksheet(1);
 
 
+                var ff = workSheet.ColumnsUsed();
+                var jl = ff.CellsUsed();
+                //foreach(var row in workSheet.)
+                //{
 
+                //}
 
-                var maxRowValue = workSheet.RowCount();
-                var maxColumnValue = workSheet.ColumnCount();
-
-               
-                string[,] dataFromExcele = new string[maxRowValue, maxColumnValue];
-
-                
-                for (int i = 1; i <= maxColumnValue; i++)
+                //Loop through the Worksheet rows.
+                bool firstRow = true;
+                foreach (IXLRow row in workSheet.Rows())
                 {
-                    for(int j = 1; j <= maxRowValue; j++)
+                    //Use the first row to add columns to DataTable.
+                    if (firstRow)
                     {
-                        dataFromExcele[i, j] = workSheet.Cell(i, j).ToString();
+                        foreach (IXLCell cell in row.Cells())
+                        {
+                            if (!string.IsNullOrEmpty(cell.Value.ToString()))
+                            {
+                                dt.Columns.Add(cell.Value.ToString());
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        firstRow = false;
+                    }
+                    else
+                    {
+                        int i = 0;
+                        DataRow toInsert = dt.NewRow();
+                        foreach (IXLCell cell in row.Cells(1, dt.Columns.Count))
+                        {
+                            try
+                            {
+                                toInsert[i] = cell.Value.ToString();
+                            }
+                            catch (Exception ex)
+                            {
+
+                            }
+                            i++;
+                        }
+                        dt.Rows.Add(toInsert);
                     }
                 }
-
-
-
-                return dataFromExcele;
-                
+                return dt;
             }
         }
     }
 }
+

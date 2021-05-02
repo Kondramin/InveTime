@@ -64,11 +64,10 @@ namespace InveTime.ViewModels
 
             #endregion
 
-            string filePath = @"D:\TestList.xlsx";
+            string filePath = @"D:\Study\TestList.xlsx";
 
-            var test = ExeleParser.ImportExceltoDatatable(filePath);
-            var test2 = ExeleParser.ImportExceltoDatatable(filePath);
-            var test3 = ExeleParser.ImportExceltoDatatable(filePath);
+            var test = ExeleParser.GetDataFromExcel(filePath);
+            var test2 = ExeleParser.GetDataFromExcel(filePath);
 
 
 
