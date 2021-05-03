@@ -52,6 +52,8 @@
             </StatusBarItem>
         </StatusBar>
         <Grid Margin="10">
+            <TextBlock Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{Binding Test.Length}"/>
+          
 
         </Grid>
 

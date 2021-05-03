@@ -49,7 +49,17 @@ namespace InveTime.ViewModels
         #endregion
 
 
+        #region test
 
+        private string _Test = "InveTime";
+        /// <summary>MainWindow Title</summary>
+        public string Test
+        {
+            get => _Test;
+            set => Set(ref _Test, value);
+        }
+
+        #endregion
 
 
         public MainWindowViewModel()
@@ -66,8 +76,8 @@ namespace InveTime.ViewModels
 
             string filePath = @"D:\Study\TestList.xlsx";
 
-            var test = ExeleParser.GetDataFromExcel(filePath);
-            var test2 = ExeleParser.GetDataFromExcel(filePath);
+            var tt = ExeleParser.GetDataFromExcel(filePath);
+          
 
 
 

@@ -8,11 +8,10 @@ namespace InveTime.Services
     {
         public static DataTable GetDataFromExcel(string path)
         {
-            //Save the uploaded Excel file.
-
-
+            
             var dt = new DataTable();
-            //Open the Excel file using ClosedXML.
+                                                            //Open the Excel file using ClosedXML.
+            
             using (var workBook = new XLWorkbook(path))
             {
                 //Read the first Sheet from Excel file.
@@ -28,7 +27,7 @@ namespace InveTime.Services
 
                 //Loop through the Worksheet rows.
                 bool firstRow = true;
-                foreach (IXLRow row in workSheet.Rows())
+                foreach (IXLRow row in workSheet.Rows( ))
                 {
                     //Use the first row to add columns to DataTable.
                     if (firstRow)
@@ -58,7 +57,7 @@ namespace InveTime.Services
                             }
                             catch (Exception ex)
                             {
-
+                                
                             }
                             i++;
                         }
