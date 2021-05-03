@@ -49,18 +49,6 @@ namespace InveTime.ViewModels
         #endregion
 
 
-        #region test
-
-        private string _Test = "InveTime";
-        /// <summary>MainWindow Title</summary>
-        public string Test
-        {
-            get => _Test;
-            set => Set(ref _Test, value);
-        }
-
-        #endregion
-
 
         public MainWindowViewModel()
         {

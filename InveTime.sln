@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InveTime", "InveTime\InveTi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InveTime.DataBase.DLL", "InveTime.DataBase.DLL\InveTime.DataBase.DLL.csproj", "{BDF93B75-20D0-43E1-A9EE-B0CA0F0171F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InveTime.Interfaces", "InveTime.Interfaces\InveTime.Interfaces.csproj", "{C8685058-5AF3-4F3A-A291-C706B9CA861A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InveTime.Interfaces", "InveTime.Interfaces\InveTime.Interfaces.csproj", "{C8685058-5AF3-4F3A-A291-C706B9CA861A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

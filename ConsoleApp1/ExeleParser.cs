@@ -1,20 +1,25 @@
 ﻿using ClosedXML.Excel;
 using System;
+using System.Collections.Generic;
 using System.Data;
 
-namespace InveTime.Services
+namespace ConsoleApp1
 {
     public class ExeleParser
     {
         public static DataTable GetDataFromExcel(string path)
         {
-            
+
             var dt = new DataTable();
-                                                            
-            
+            //Open the Excel file using ClosedXML.
+
             using (var workBook = new XLWorkbook(path))
-            {   
+            {
+                //Read the first Sheet from Excel file.
                 var workSheet = workBook.Worksheet(1);
+
+
+               
 
                 //Loop through the Worksheet rows.
                 bool firstRow = true;
@@ -48,7 +53,7 @@ namespace InveTime.Services
                             }
                             catch (Exception ex)
                             {
-                                
+
                             }
                             i++;
                         }
@@ -58,6 +63,7 @@ namespace InveTime.Services
                 return dt;
             }
         }
+
     }
 }
 
