@@ -1,29 +1,36 @@
 ﻿using ClosedXML.Excel;
+using InveTime.DataBase.DLL.Entityes;
+using InveTime.Interfaces;
+using InveTime.Services.Interface;
 using System;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace InveTime.Services
 {
-    public class ExeleParser
+    public class ParserService : IParserService
     {
-        public static DataTable GetDataFromExcel(string path)
+        private readonly IRepository<Product> _ProductRepository;
+
+        public ParserService(IRepository<Product> ProductRepository)
         {
-            
+            _ProductRepository = ProductRepository;
+        }
+        
+        public DataTable GetDataFromExcel(string path)
+        {
             var dt = new DataTable();
-                                                            
-            
+
             using (var workBook = new XLWorkbook(path))
-            {   
+            {
                 var workSheet = workBook.Worksheet(1);
 
-                //Loop through the Worksheet rows.
                 bool firstRow = true;
-                foreach (IXLRow row in workSheet.Rows())
+                foreach (var row in workSheet.Rows())
                 {
-                    //Use the first row to add columns to DataTable.
                     if (firstRow)
                     {
-                        foreach (IXLCell cell in row.Cells())
+                        foreach (var cell in row.Cells())
                         {
                             if (!string.IsNullOrEmpty(cell.Value.ToString()))
                             {
@@ -39,8 +46,8 @@ namespace InveTime.Services
                     else
                     {
                         int i = 0;
-                        DataRow toInsert = dt.NewRow();
-                        foreach (IXLCell cell in row.Cells(1, dt.Columns.Count))
+                        var toInsert = dt.NewRow();
+                        foreach (var cell in row.Cells(1, dt.Columns.Count))
                         {
                             try
                             {
@@ -48,7 +55,7 @@ namespace InveTime.Services
                             }
                             catch (Exception ex)
                             {
-                                
+
                             }
                             i++;
                         }
@@ -57,6 +64,18 @@ namespace InveTime.Services
                 }
                 return dt;
             }
+        }
+
+
+        public async Task<DataTable> GetDataFromExcelAsync(string path)
+        {
+            var dt = await Task.Run(() => GetDataFromExcel(path));
+            return dt;
+        }
+
+        public void SaveDataInDataBase(DataTable data)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -62,10 +62,10 @@ namespace InveTime.ViewModels
 
             #endregion
 
-            string filePath = @"D:\Study\TestList.xlsx";
+            //string filePath = @"D:\Study\TestList.xlsx";
 
-            var tt = ExeleParser.GetDataFromExcel(filePath);
-          
+
+
 
 
 

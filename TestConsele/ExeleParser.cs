@@ -1,10 +1,6 @@
 ﻿using ClosedXML.Excel;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TestConsele
 {
@@ -20,14 +16,12 @@ namespace TestConsele
             {
                 var workSheet = workBook.Worksheet(1);
 
-                //Loop through the Worksheet rows.
                 bool firstRow = true;
-                foreach (IXLRow row in workSheet.Rows())
+                foreach (var row in workSheet.Rows())
                 {
-                    //Use the first row to add columns to DataTable.
                     if (firstRow)
                     {
-                        foreach (IXLCell cell in row.Cells())
+                        foreach (var cell in row.Cells())
                         {
                             if (!string.IsNullOrEmpty(cell.Value.ToString()))
                             {
@@ -43,8 +37,8 @@ namespace TestConsele
                     else
                     {
                         int i = 0;
-                        DataRow toInsert = dt.NewRow();
-                        foreach (IXLCell cell in row.Cells(1, dt.Columns.Count))
+                        var toInsert = dt.NewRow();
+                        foreach (var cell in row.Cells(1, dt.Columns.Count))
                         {
                             try
                             {
