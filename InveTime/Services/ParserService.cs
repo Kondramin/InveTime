@@ -3,6 +3,7 @@ using InveTime.DataBase.DLL.Entityes;
 using InveTime.Interfaces;
 using InveTime.Services.Interface;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 
@@ -73,9 +74,26 @@ namespace InveTime.Services
             return dt;
         }
 
+       
         public void SaveDataInDataBase(DataTable data)
         {
-            throw new NotImplementedException();
+            //var product = new Product();
+            //List<Product> productList = new List<Product>();
+            //foreach (DataColumn column in data.Columns)
+            //{
+
+            //}
+            //    Console.Write("\t{0}", column.ColumnName);
+            //Console.WriteLine();
+            //// перебор всех строк таблицы
+            //foreach (DataRow row in data.Rows)
+            //{
+            //    // получаем все ячейки строки
+            //    var cells = row.ItemArray;
+            //    foreach (object cell in cells)
+            //        Console.Write("\t{0}", cell);
+            //    Console.WriteLine();
+            //}
         }
     }
 }
