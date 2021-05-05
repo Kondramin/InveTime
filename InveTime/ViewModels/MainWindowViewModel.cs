@@ -62,8 +62,8 @@ namespace InveTime.ViewModels
 
             #endregion
 
-            //string filePath = @"D:\Study\TestList.xlsx";
-
+            string filePath = @"D:\Study\TestList.xlsx";
+            new ParserService().SaveDataInDataBase( new ParserService().GetDataFromExcel(filePath));
 
 
 

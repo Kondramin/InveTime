@@ -17,7 +17,11 @@ namespace InveTime.Services
         {
             _ProductRepository = ProductRepository;
         }
-        
+        public ParserService()
+        {
+
+        }
+
         public DataTable GetDataFromExcel(string path)
         {
             var dt = new DataTable();
@@ -77,23 +81,25 @@ namespace InveTime.Services
        
         public void SaveDataInDataBase(DataTable data)
         {
-            //var product = new Product();
-            //List<Product> productList = new List<Product>();
-            //foreach (DataColumn column in data.Columns)
-            //{
+            var product = new Product();
+            List<Product> productList = new List<Product>();
+            foreach (DataColumn column in data.Columns)
+            {
 
-            //}
-            //    Console.Write("\t{0}", column.ColumnName);
-            //Console.WriteLine();
-            //// перебор всех строк таблицы
-            //foreach (DataRow row in data.Rows)
-            //{
-            //    // получаем все ячейки строки
-            //    var cells = row.ItemArray;
-            //    foreach (object cell in cells)
-            //        Console.Write("\t{0}", cell);
-            //    Console.WriteLine();
-            //}
+            }
+
+            // перебор всех строк таблицы
+            foreach (DataRow row in data.Rows)
+            {
+                
+                // получаем все ячейки строки
+                var cells = row.ItemArray;
+                var cellsd = cells[0];
+                foreach (object cell in cells)
+
+                    Console.Write("\t{0}", cell);
+                Console.WriteLine();
+            }
         }
     }
 }
