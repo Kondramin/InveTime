@@ -29,7 +29,6 @@ namespace InveTime
         protected override async void OnStartup(StartupEventArgs e)
         {
             var host = Host;
-
             using (var scope = Services.CreateScope())
             {
                 await scope.ServiceProvider.GetRequiredService<DbInitializer>().InitializeAsync();

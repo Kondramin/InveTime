@@ -3,7 +3,6 @@ using InveTime.DataBase.DLL.Entityes;
 using InveTime.Interfaces;
 using InveTime.Services.Interface;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 
@@ -13,22 +12,25 @@ namespace InveTime.Services
     {
         private readonly IRepository<Product> _ProductRepository;
 
+
+
         public ParserService(IRepository<Product> ProductRepository)
         {
             _ProductRepository = ProductRepository;
-            
         }
-        public ParserService()
-        {
-
-        }
-
+        
+        public ParserService(){ }
+        
+        
+        
         public DataTable GetDataFromExcel(string path)
         {
             var dt = new DataTable();
 
+
             using (var workBook = new XLWorkbook(path))
             {
+
                 var workSheet = workBook.Worksheet(1);
 
                 bool firstRow = true;
@@ -72,24 +74,20 @@ namespace InveTime.Services
             }
         }
 
-
-        public async Task<DataTable> GetDataFromExcelAsync(string path)
-        {
-            var dt = await Task.Run(() => GetDataFromExcel(path));
-            return dt;
-        }
-
-       
+        public async Task<DataTable> GetDataFromExcelAsync(string path) => await Task.Run(() => GetDataFromExcel(path));
+        
+        
+        
         public void SaveDataInDataBase(DataTable data)
         {
             var product = new Product();
-            List<Product> productList = new List<Product>();
+            //int i = 1;
 
-            _ProductRepository.AutoSaveChanges = false;
+            //_ProductRepository.AutoSaveChanges = false;
             foreach (DataRow row in data.Rows)
             {
-                
-                
+                //if (i == data.Rows.Count) _ProductRepository.AutoSaveChanges = true;
+
                 var cells = row.ItemArray;
                 product.Barcode = cells[0].ToString();
                 product.VendorCode = cells[1].ToString();
@@ -99,11 +97,9 @@ namespace InveTime.Services
                 
                 _ProductRepository.Add(product);
 
-                
+                //i++;
             }
-            _ProductRepository.AutoSaveChanges = true;
-            
-            
+            //return true;
         }
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace InveTime.DataBase.DLL.Migrations
 {
-    public partial class Init : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -79,6 +79,7 @@ namespace InveTime.DataBase.DLL.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Barcode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    VendorCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Cost = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     AmountData = table.Column<int>(type: "int", nullable: false),
                     AmountFact = table.Column<int>(type: "int", nullable: false),

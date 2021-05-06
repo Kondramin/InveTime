@@ -152,6 +152,9 @@ namespace InveTime.DataBase.DLL.Migrations
                     b.Property<int?>("TypeProductId")
                         .HasColumnType("int");
 
+                    b.Property<string>("VendorCode")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("DateInventarisationId");

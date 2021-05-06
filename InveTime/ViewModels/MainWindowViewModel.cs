@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using InveTime.Services;
+using InveTime.Services.Interface;
 
 namespace InveTime.ViewModels
 {
@@ -50,72 +51,69 @@ namespace InveTime.ViewModels
 
 
 
-        public MainWindowViewModel()
-        {
-
-            
-            #region Commands
-
-
-            CloseAppCommand = new LambdaCommand(OnCloseAppCommandExequted, CanCloseAppCommandExequte);
-
-
-            #endregion
-
-            string filePath = @"D:\Study\TestList.xlsx";
-            new ParserService().SaveDataInDataBase( new ParserService().GetDataFromExcel(filePath));
-
-
-
-
-
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //private readonly IRepository<TypeProduct> _TypeProductRepository;
-
-
         //public MainWindowViewModel()
         //{
 
+
+        //    #region Commands
+
+
+        //    CloseAppCommand = new LambdaCommand(OnCloseAppCommandExequted, CanCloseAppCommandExequte);
+
+
+        //    #endregion
+
+        //    string filePath = @"D:\Study\TestList.xlsx";
+        //    new ParserService().SaveDataInDataBase(new ParserService().GetDataFromExcel(filePath));
+
+
+
+
+
+
         //}
 
-        //public MainWindowViewModel(IRepository<TypeProduct> TypeProductRepository)
-        //{
-        //    _TypeProductRepository = TypeProductRepository;
 
 
-        //    var tupeprod = TypeProductRepository.Items.Take(10).ToList();
-        //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        private readonly IRepository<TypeProduct> _TypeProductRepository;
+        private readonly IParserService _ParserService;
+
+        public MainWindowViewModel(IRepository<TypeProduct> TypeProductRepository,
+            IParserService ParserService)
+        {
+            _TypeProductRepository = TypeProductRepository;
+            _ParserService = ParserService;
+            string filePath = @"D:\Study\TestList.xlsx";
+            ParserService.SaveDataInDataBase(ParserService.GetDataFromExcel(filePath));
+            var tupeprod = TypeProductRepository.Items.Take(10).ToList();
+        }
     }
 }

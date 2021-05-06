@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InveTime.DataBase.DLL.Migrations
 {
     [DbContext(typeof(InveTimeDB))]
-    [Migration("20210429075819_Init")]
-    partial class Init
+    [Migration("20210506215824_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -153,6 +153,9 @@ namespace InveTime.DataBase.DLL.Migrations
 
                     b.Property<int?>("TypeProductId")
                         .HasColumnType("int");
+
+                    b.Property<string>("VendorCode")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
