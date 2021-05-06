@@ -7,8 +7,7 @@ namespace InveTime.Interfaces
     public interface IRepository<T> where T : class, IEntity, new()
     {
         IQueryable<T> Items { get; }
-
-
+        bool AutoSaveChanges { get; set; }
 
         T Get(int id);
 

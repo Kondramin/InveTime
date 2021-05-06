@@ -16,6 +16,7 @@ namespace InveTime.Services
         public ParserService(IRepository<Product> ProductRepository)
         {
             _ProductRepository = ProductRepository;
+            
         }
         public ParserService()
         {
@@ -83,23 +84,26 @@ namespace InveTime.Services
         {
             var product = new Product();
             List<Product> productList = new List<Product>();
-            foreach (DataColumn column in data.Columns)
-            {
 
-            }
-
-            // перебор всех строк таблицы
+            _ProductRepository.AutoSaveChanges = false;
             foreach (DataRow row in data.Rows)
             {
                 
-                // получаем все ячейки строки
+                
                 var cells = row.ItemArray;
-                var cellsd = cells[0];
-                foreach (object cell in cells)
+                product.Barcode = cells[0].ToString();
+                product.VendorCode = cells[1].ToString();
+                product.Name = cells[2].ToString();
+                product.AmountData = Convert.ToInt32(cells[3]);
 
-                    Console.Write("\t{0}", cell);
-                Console.WriteLine();
+                
+                _ProductRepository.Add(product);
+
+                
             }
+            _ProductRepository.AutoSaveChanges = true;
+            
+            
         }
     }
 }

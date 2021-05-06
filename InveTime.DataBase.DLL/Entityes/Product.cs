@@ -6,6 +6,7 @@ namespace InveTime.DataBase.DLL.Entityes
     public class Product : NamedEntity
     {
         public string Barcode { get; set; }
+        public string VendorCode { get; set; }
         [Column(TypeName ="decimal(18,2)")]
         public decimal? Cost { get; set; }
         public int AmountData { get; set; }
