@@ -20,7 +20,7 @@ namespace InveTime.DataBase.DLL.Entityes
 
 
         public int? TypeProductId { get; set; }
-        public TypeProduct TypeProduct { get; set; }
+        public Category TypeProduct { get; set; }
 
 
 

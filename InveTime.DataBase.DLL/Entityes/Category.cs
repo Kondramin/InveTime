@@ -3,8 +3,9 @@ using System.Collections.Generic;
 
 namespace InveTime.DataBase.DLL.Entityes
 {
-    public class TypeProduct : NamedEntity
+    public class Category : NamedEntity
     {
         public List<Product> Products { get; set; }
+        public List<CategorySearching> CategoriesSearching { get; set; }
     }
 }

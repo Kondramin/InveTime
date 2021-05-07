@@ -10,7 +10,7 @@ namespace InveTime.DataBase.DLL
             .AddTransient<IRepository<Employee>, EmployeeRepository>()
             .AddTransient<IRepository<Position>, DbRepository<Position>>()
             .AddTransient<IRepository<Product>, ProductRepository>()
-            .AddTransient<IRepository<TypeProduct>, DbRepository<TypeProduct>>()
+            .AddTransient<IRepository<Category>, DbRepository<Category>>()
             .AddTransient<IRepository<DateInventarisation>, DbRepository<DateInventarisation>>()
             ;
     }

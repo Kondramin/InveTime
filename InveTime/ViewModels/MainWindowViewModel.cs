@@ -76,10 +76,10 @@ namespace InveTime.ViewModels
 
 
 
-        private readonly IRepository<TypeProduct> _TypeProductRepository;
+        private readonly IRepository<Category> _TypeProductRepository;
         private readonly IParserService _ParserService;
 
-        public MainWindowViewModel(IRepository<TypeProduct> TypeProductRepository,
+        public MainWindowViewModel(IRepository<Category> TypeProductRepository,
             IParserService ParserService)
         {
             _TypeProductRepository = TypeProductRepository;

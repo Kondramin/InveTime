@@ -12,9 +12,9 @@ namespace InveTime.Services
     public class ParserService : IParserService
     {
         private readonly IRepository<Product> _ProductRepository;
-        private readonly IRepository<TypeProduct> _TypeProductRepository;
+        private readonly IRepository<Category> _TypeProductRepository;
 
-        public ParserService(IRepository<Product> ProductRepository, IRepository<TypeProduct> TypeProductRepository)
+        public ParserService(IRepository<Product> ProductRepository, IRepository<Category> TypeProductRepository)
         {
             _ProductRepository = ProductRepository;
             _TypeProductRepository = TypeProductRepository;
@@ -128,7 +128,7 @@ namespace InveTime.Services
 
         public void IdentifyTypeProduct()
         {
-            var typeProducts = new List<TypeProduct>(_TypeProductRepository.Items);
+            var typeProducts = new List<Category>(_TypeProductRepository.Items);
         }
     }
 }
