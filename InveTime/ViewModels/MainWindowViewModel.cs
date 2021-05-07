@@ -76,33 +76,6 @@ namespace InveTime.ViewModels
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         private readonly IRepository<TypeProduct> _TypeProductRepository;
         private readonly IParserService _ParserService;
 

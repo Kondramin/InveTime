@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InveTime.DataBase.DLL.Migrations
 {
     [DbContext(typeof(InveTimeDB))]
-    [Migration("20210506215824_Initial")]
-    partial class Initial
+    [Migration("20210507105555_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -80,26 +80,24 @@ namespace InveTime.Services
         
         public void SaveDataInDataBase(DataTable data)
         {
-            var product = new Product();
-            //int i = 1;
-
-            //_ProductRepository.AutoSaveChanges = false;
+            
             foreach (DataRow row in data.Rows)
             {
-                //if (i == data.Rows.Count) _ProductRepository.AutoSaveChanges = true;
-
+                
                 var cells = row.ItemArray;
-                product.Barcode = cells[0].ToString();
-                product.VendorCode = cells[1].ToString();
-                product.Name = cells[2].ToString();
-                product.AmountData = Convert.ToInt32(cells[3]);
-
+                var product = new Product()
+                {
+                    Barcode = cells[0].ToString(),
+                    VendorCode = cells[1].ToString(),
+                    Name = cells[2].ToString(),
+                    AmountData = Convert.ToInt32(cells[3])
+                };
                 
                 _ProductRepository.Add(product);
 
-                //i++;
+            
             }
-            //return true;
+            
         }
     }
 }
