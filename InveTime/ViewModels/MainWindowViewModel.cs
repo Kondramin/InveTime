@@ -76,17 +76,17 @@ namespace InveTime.ViewModels
 
 
 
-        private readonly IRepository<Category> _TypeProductRepository;
-        private readonly IParserService _ParserService;
+        //private readonly IRepository<Category> _TypeProductRepository;
+        //private readonly IParserService _ParserService;
 
-        public MainWindowViewModel(IRepository<Category> TypeProductRepository,
-            IParserService ParserService)
-        {
-            _TypeProductRepository = TypeProductRepository;
-            _ParserService = ParserService;
-            string filePath = @"D:\Study\TestList.xlsx";
-            ParserService.SaveDataInDataBase(ParserService.GetDataFromExcel(filePath));
-            var tupeprod = TypeProductRepository.Items.Take(10).ToList();
-        }
+        //public MainWindowViewModel(IRepository<Category> TypeProductRepository,
+        //    IParserService ParserService)
+        //{
+        //    _TypeProductRepository = TypeProductRepository;
+        //    _ParserService = ParserService;
+        //    string filePath = @"D:\Study\TestList.xlsx";
+        //    ParserService.SaveDataInDataBase(ParserService.GetDataFromExcel(filePath));
+        //    var tupeprod = TypeProductRepository.Items.Take(10).ToList();
+        //}
     }
 }

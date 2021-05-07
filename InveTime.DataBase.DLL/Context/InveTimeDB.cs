@@ -1,5 +1,4 @@
-﻿
-using InveTime.DataBase.DLL.Entityes;
+﻿using InveTime.DataBase.DLL.Entityes;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.CodeAnalysis;
 
@@ -24,7 +23,6 @@ namespace InveTime.DataBase.DLL.Context
 
 
         public InveTimeDB([NotNullAttribute] DbContextOptions options) : base(options) { }
-
 
 
         #region Initial Data
