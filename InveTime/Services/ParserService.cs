@@ -3,6 +3,7 @@ using InveTime.DataBase.DLL.Entityes;
 using InveTime.Interfaces;
 using InveTime.Services.Interface;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 
@@ -11,12 +12,12 @@ namespace InveTime.Services
     public class ParserService : IParserService
     {
         private readonly IRepository<Product> _ProductRepository;
+        private readonly IRepository<TypeProduct> _TypeProductRepository;
 
-
-
-        public ParserService(IRepository<Product> ProductRepository)
+        public ParserService(IRepository<Product> ProductRepository, IRepository<TypeProduct> TypeProductRepository)
         {
             _ProductRepository = ProductRepository;
+            _TypeProductRepository = TypeProductRepository;
         }
         
         public ParserService(){ }
@@ -74,7 +75,11 @@ namespace InveTime.Services
             }
         }
 
-        public async Task<DataTable> GetDataFromExcelAsync(string path) => await Task.Run(() => GetDataFromExcel(path));
+        public async Task<DataTable> GetDataFromExcelAsync(string path)
+        {
+            var dt = await Task.Run(() => GetDataFromExcel(path));
+            return dt;
+        }
         
         
         
@@ -95,9 +100,35 @@ namespace InveTime.Services
                 
                 _ProductRepository.Add(product);
 
-            
             }
             
+        }
+
+        public async Task SaveDataInDataBaseAsync(DataTable data)
+        {
+
+            foreach (DataRow row in data.Rows)
+            {
+
+                var cells = row.ItemArray;
+                var product = new Product()
+                {
+                    Barcode = cells[0].ToString(),
+                    VendorCode = cells[1].ToString(),
+                    Name = cells[2].ToString(),
+                    AmountData = Convert.ToInt32(cells[3])
+                };
+
+                await _ProductRepository.AddAsync(product);
+
+            }
+        }
+
+
+
+        public void IdentifyTypeProduct()
+        {
+            var typeProducts = new List<TypeProduct>(_TypeProductRepository.Items);
         }
     }
 }

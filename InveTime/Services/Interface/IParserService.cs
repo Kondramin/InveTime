@@ -8,5 +8,6 @@ namespace InveTime.Services.Interface
         DataTable GetDataFromExcel(string path);
         Task<DataTable> GetDataFromExcelAsync(string path);
         void SaveDataInDataBase(DataTable data);
+        Task SaveDataInDataBaseAsync(DataTable data);
     }
 }
