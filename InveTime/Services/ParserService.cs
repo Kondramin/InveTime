@@ -2,6 +2,7 @@
 using InveTime.DataBase.DLL.Entityes;
 using InveTime.Interfaces;
 using InveTime.Services.Interface;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,12 +13,13 @@ namespace InveTime.Services
     public class ParserService : IParserService
     {
         private readonly IRepository<Product> _ProductRepository;
-        private readonly IRepository<Category> _TypeProductRepository;
+        private readonly IRepository<CategorySearching> _CategorySearchingRepository;
 
-        public ParserService(IRepository<Product> ProductRepository, IRepository<Category> TypeProductRepository)
+        public ParserService(IRepository<Product> ProductRepository,
+            IRepository<CategorySearching> CategorySearchingRepository)
         {
             _ProductRepository = ProductRepository;
-            _TypeProductRepository = TypeProductRepository;
+            _CategorySearchingRepository = CategorySearchingRepository;
         }
         
         public ParserService(){ }
@@ -126,9 +128,18 @@ namespace InveTime.Services
 
 
 
-        public void IdentifyTypeProduct()
+        public void IdentifyCategory()
         {
-            var typeProducts = new List<Category>(_TypeProductRepository.Items);
+            foreach(var categorySearching in _CategorySearchingRepository.Items)
+            {
+                //https://metanit.com/sharp/entityframeworkcore/6.1.php
+
+
+            }
+
+
+
+
         }
     }
 }
