@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InveTime.DataBase.DLL.Migrations
 {
     [DbContext(typeof(InveTimeDB))]
-    [Migration("20210507192756_Initial")]
+    [Migration("20210520134624_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -502,6 +502,9 @@ namespace InveTime.DataBase.DLL.Migrations
                     b.Property<string>("Barcode")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<decimal?>("Cost")
                         .HasColumnType("decimal(18,2)");
 
@@ -514,17 +517,14 @@ namespace InveTime.DataBase.DLL.Migrations
                     b.Property<bool>("Peresort")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("TypeProductId")
-                        .HasColumnType("int");
-
                     b.Property<string>("VendorCode")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DateInventarisationId");
+                    b.HasIndex("CategoryId");
 
-                    b.HasIndex("TypeProductId");
+                    b.HasIndex("DateInventarisationId");
 
                     b.ToTable("Products");
                 });
@@ -549,17 +549,17 @@ namespace InveTime.DataBase.DLL.Migrations
 
             modelBuilder.Entity("InveTime.DataBase.DLL.Entityes.Product", b =>
                 {
+                    b.HasOne("InveTime.DataBase.DLL.Entityes.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId");
+
                     b.HasOne("InveTime.DataBase.DLL.Entityes.DateInventarisation", "DateInventarisation")
                         .WithMany("Products")
                         .HasForeignKey("DateInventarisationId");
 
-                    b.HasOne("InveTime.DataBase.DLL.Entityes.Category", "TypeProduct")
-                        .WithMany("Products")
-                        .HasForeignKey("TypeProductId");
+                    b.Navigation("Category");
 
                     b.Navigation("DateInventarisation");
-
-                    b.Navigation("TypeProduct");
                 });
 
             modelBuilder.Entity("InveTime.DataBase.DLL.Entityes.Category", b =>

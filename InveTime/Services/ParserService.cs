@@ -4,8 +4,8 @@ using InveTime.Interfaces;
 using InveTime.Services.Interface;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace InveTime.Services
@@ -22,10 +22,9 @@ namespace InveTime.Services
             _CategorySearchingRepository = CategorySearchingRepository;
         }
         
-        public ParserService(){ }
-        
-        
-        
+
+
+
         public DataTable GetDataFromExcel(string path)
         {
             var dt = new DataTable();
@@ -130,16 +129,35 @@ namespace InveTime.Services
 
         public void IdentifyCategory()
         {
-            foreach(var categorySearching in _CategorySearchingRepository.Items)
+
+            var prodNullCategory = _ProductRepository.Items.Where(p => EF.Functions.Like(p.Category.Name, null));
+            var categorySearch = _CategorySearchingRepository.Items;
+            foreach(var cat in categorySearch)
             {
-                //https://metanit.com/sharp/entityframeworkcore/6.1.php
-
-
+                string SQLcat = $"%{cat.Name}%";
+                var selectedProdNullCategory = prodNullCategory.Where(p => EF.Functions.Like(p.Name, SQLcat));
+                foreach(var product in selectedProdNullCategory)
+                {
+                    product.Category = cat.Category;
+                    _ProductRepository.Update(product);
+                }
             }
+        }
 
-
-
-
+        public async Task IdentifyCategoryAsync()
+        {
+            var prodNullCategory = _ProductRepository.Items.Where(p => EF.Functions.Like(p.Category.Name, null));
+            var categorySearch = _CategorySearchingRepository.Items;
+            foreach (var cat in categorySearch)
+            {
+                string SQLcat = $"%{cat.Name}%";
+                var selectedProdNullCategory = prodNullCategory.Where(p => EF.Functions.Like(p.Name, SQLcat));
+                foreach (var product in selectedProdNullCategory)
+                {
+                    product.Category = cat.Category;
+                    await _ProductRepository.UpdateAsync(product);
+                }
+            }
         }
     }
 }

@@ -80,7 +80,7 @@ namespace InveTime.DataBase.DLL.Migrations
                     AmountFact = table.Column<int>(type: "int", nullable: false),
                     AmountResult = table.Column<int>(type: "int", nullable: false),
                     Peresort = table.Column<bool>(type: "bit", nullable: false),
-                    TypeProductId = table.Column<int>(type: "int", nullable: true),
+                    CategoryId = table.Column<int>(type: "int", nullable: true),
                     DateInventarisationId = table.Column<int>(type: "int", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -88,8 +88,8 @@ namespace InveTime.DataBase.DLL.Migrations
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Products_Categories_TypeProductId",
-                        column: x => x.TypeProductId,
+                        name: "FK_Products_Categories_CategoryId",
+                        column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -224,14 +224,14 @@ namespace InveTime.DataBase.DLL.Migrations
                 column: "PositionId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Products_CategoryId",
+                table: "Products",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Products_DateInventarisationId",
                 table: "Products",
                 column: "DateInventarisationId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Products_TypeProductId",
-                table: "Products",
-                column: "TypeProductId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

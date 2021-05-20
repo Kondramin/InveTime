@@ -10,7 +10,7 @@ namespace InveTime.DataBase.DLL
 
 
         public override IQueryable<Product> Items => base.Items
-            .Include(item => item.TypeProduct)
+            .Include(item => item.Category)
             .Include(item => item.DateInventarisation)
             ;
 
