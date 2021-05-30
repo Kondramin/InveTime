@@ -52,8 +52,17 @@
             </StatusBarItem>
         </StatusBar>
         <Grid Margin="10">
-            <TextBlock Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{Binding Test.Length}"/>
-          
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Calendar></Calendar>
+
 
         </Grid>
 
