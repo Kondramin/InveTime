@@ -15,7 +15,7 @@
         DataContext="{Binding MainWindowViewModel, Source={StaticResource Locator}}"
        
         Title="{Binding Title}" 
-        Height="450" Width="800">
+        MinHeight="800" MinWidth="1200">
     <DockPanel>
         <Menu DockPanel.Dock="Top" IsMainMenu="True">
             <MenuItem Header="Общее">
@@ -61,7 +61,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Calendar></Calendar>
+            <Calendar Grid.Column="0" Grid.Row="0"/>
+            
 
 
         </Grid>

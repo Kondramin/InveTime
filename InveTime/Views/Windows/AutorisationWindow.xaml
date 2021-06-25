@@ -1,0 +1,32 @@
+﻿<Window x:Class="InveTime.Views.Windows.AutorisationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" mc:Ignorable="d"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InveTime.Views.Windows"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="13"
+            TextOptions.TextFormattingMode="Ideal"
+            TextOptions.TextRenderingMode="Auto"
+            Background="{DynamicResource MaterialDesignPaper}"
+            FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        Title="Авторизация в системе" 
+        Height="300" Width="400">
+    <DockPanel>
+        <Label Content="Добро пожаловать" FontSize="20" HorizontalAlignment="Center" Height="auto" DockPanel.Dock="Top"/>
+        
+        <Grid Height="50" Margin="10" DockPanel.Dock="Bottom">
+            <Button Content="Вход" HorizontalAlignment="Left" Width="150"/>
+            <Button Content="Выход" HorizontalAlignment="Right" Width="150"/>
+        </Grid>
+        
+        <StackPanel Margin="5">
+            <TextBox materialDesign:HintAssist.Hint="Введите логин" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <PasswordBox materialDesign:HintAssist.Hint="Введите пароль" Margin="20" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+        </StackPanel>
+
+    </DockPanel>
+</Window>
