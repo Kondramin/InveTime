@@ -6,6 +6,7 @@ namespace InveTime.ViewModels
     {
         public static IServiceCollection AddViewModels(this IServiceCollection services) => services
             .AddSingleton<MainWindowViewModel>()
+            .AddSingleton<AutorisationWindowViewModel>()
             ;
     }
 }

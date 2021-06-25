@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" mc:Ignorable="d"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:InveTime.Views.Windows"
             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
             TextElement.FontWeight="Regular"
@@ -13,10 +12,13 @@
             Background="{DynamicResource MaterialDesignPaper}"
             FontFamily="{DynamicResource MaterialDesignFont}"
         
+        xmlns:local="clr-namespace:InveTime.Views.Windows"
+        DataContext="{Binding AutorisationWindowViewModel, Source={StaticResource Locator}}"
+        
         Title="Авторизация в системе" 
         Height="300" Width="400">
     <DockPanel>
-        <Label Content="Добро пожаловать" FontSize="20" HorizontalAlignment="Center" Height="auto" DockPanel.Dock="Top"/>
+        <Label Content="Добро пожаловать" FontSize="20" HorizontalAlignment="Center" Height="auto" Margin="5" DockPanel.Dock="Top"/>
         
         <Grid Height="50" Margin="10" DockPanel.Dock="Bottom">
             <Button Content="Вход" HorizontalAlignment="Left" Width="150"/>
