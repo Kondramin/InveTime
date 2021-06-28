@@ -12,7 +12,7 @@
             Background="{DynamicResource MaterialDesignPaper}"
             FontFamily="{DynamicResource MaterialDesignFont}"
         
-        xmlns:local="clr-namespace:InveTime.Views.Windows"
+        xmlns:local="clr-namespace:InveTime"
         DataContext="{Binding AutorisationWindowViewModel, Source={StaticResource Locator}}"
         
         Title="Авторизация в системе" 
@@ -26,7 +26,7 @@
         </Grid>
         
         <StackPanel Margin="5">
-            <TextBox materialDesign:HintAssist.Hint="Введите логин" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <TextBox materialDesign:HintAssist.Hint="Введите логин" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
             <PasswordBox materialDesign:HintAssist.Hint="Введите пароль" Margin="20" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
         </StackPanel>
 
