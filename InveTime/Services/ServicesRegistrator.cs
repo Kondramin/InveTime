@@ -1,4 +1,5 @@
 ﻿using InveTime.Services.Interface;
+using InveTime.Views.Windows;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace InveTime.Services
@@ -7,6 +8,7 @@ namespace InveTime.Services
     {
         public static IServiceCollection AddServices(this IServiceCollection services) => services
             .AddTransient<IParserService, ParserService>()
+            .AddTransient<IPasswordSupplier, AutorisationWindow>()
             ;
     }
 }

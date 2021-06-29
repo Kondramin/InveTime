@@ -37,11 +37,15 @@
             <MenuItem Header="О программе" ></MenuItem>
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
-            <StatusBarItem MinWidth="150" MaxWidth="300">
-                <TextBlock Text="{Binding Status}"/>
+            <StatusBarItem 
+                MinWidth="150" MaxWidth="300">
+                <TextBlock 
+                    Text="{Binding Status}"/>
             </StatusBarItem>
             <StatusBarItem>
-                <ProgressBar Width="150" Height="12" Value="{Binding Progress}"/>
+                <ProgressBar 
+                    Width="150" Height="12" 
+                    Value="{Binding Progress}"/>
             </StatusBarItem>
         </StatusBar>
         <Grid Margin="10">

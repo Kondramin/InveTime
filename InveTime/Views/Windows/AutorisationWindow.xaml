@@ -15,7 +15,7 @@
         xmlns:local="clr-namespace:InveTime"
         DataContext="{Binding AutorisationWindowViewModel, Source={StaticResource Locator}}"
         
-        Title="Авторизация в системе" 
+        Title="{Binding Title}" 
         Height="300" Width="400">
     <DockPanel>
         <Label Content="Добро пожаловать" FontSize="20" HorizontalAlignment="Center" Height="auto" Margin="5" DockPanel.Dock="Top"/>
@@ -26,8 +26,16 @@
         </Grid>
         
         <StackPanel Margin="5">
-            <TextBox materialDesign:HintAssist.Hint="Введите логин" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
-            <PasswordBox materialDesign:HintAssist.Hint="Введите пароль" Margin="20" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+            <TextBox
+                Text="{Binding Path=LoginTextBox}"
+                Margin="20" 
+                materialDesign:HintAssist.Hint="Введите логин" 
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <PasswordBox                
+                x:Name="pwdBox"
+                Margin="20"
+                materialDesign:HintAssist.Hint="Введите пароль" 
+                Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Cursor="IBeam"/>
         </StackPanel>
 
     </DockPanel>

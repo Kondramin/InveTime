@@ -1,6 +1,8 @@
 ﻿using InveTime.DataBase.DLL.Entityes;
 using InveTime.Interfaces;
+using InveTime.Services.Interface;
 using InveTime.ViewModels.Base;
+using System.Security;
 
 namespace InveTime.ViewModels
 {
@@ -8,9 +10,21 @@ namespace InveTime.ViewModels
     {
         private readonly IRepository<Employee> _EmployeeRepository;
 
-        
-        
-        
+
+
+        #region string AutorisationWindow Title  = "InveTime"
+
+        private string _Title = "Авторизация в системе";
+        /// <summary>AutorisationWindow Title</summary>
+        public string Title
+        {
+            get => _Title;
+            set => Set(ref _Title, value);
+        }
+
+        #endregion
+
+
         #region string AutorisationWindow LoginTextBox
 
         private string _LoginTextBox;
@@ -24,11 +38,11 @@ namespace InveTime.ViewModels
         #endregion
 
 
-        #region string AutorisationWindow PasswordTextBox
+        #region SecureString AutorisationWindow PasswordTextBox
 
-        private string _PasswordTextBox;
+        private SecureString _PasswordTextBox;
         /// <summary>AutorisationWindow PasswordTextBox</summary>
-        public string PasswordTextBox
+        public SecureString PasswordTextBox
         {
             get => _PasswordTextBox;
             set => Set(ref _PasswordTextBox, value);
@@ -39,7 +53,9 @@ namespace InveTime.ViewModels
 
 
 
-        public AutorisationWindowViewModel(IRepository<Employee> EmployeeRepository)
+        public AutorisationWindowViewModel(
+            IRepository<Employee> EmployeeRepository,
+            IPasswordSupplier passwordSupplier)
         {
             _EmployeeRepository = EmployeeRepository;
         }
