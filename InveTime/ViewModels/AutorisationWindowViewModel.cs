@@ -9,6 +9,7 @@ namespace InveTime.ViewModels
     class AutorisationWindowViewModel : ViewModel
     {
         private readonly IRepository<Employee> _EmployeeRepository;
+        private readonly IPasswordSupplier _PasswordSupplier;
 
 
 
@@ -55,9 +56,10 @@ namespace InveTime.ViewModels
 
         public AutorisationWindowViewModel(
             IRepository<Employee> EmployeeRepository,
-            IPasswordSupplier passwordSupplier)
+            IPasswordSupplier PasswordSupplier)
         {
             _EmployeeRepository = EmployeeRepository;
+            _PasswordSupplier = PasswordSupplier;
         }
     }
 }
