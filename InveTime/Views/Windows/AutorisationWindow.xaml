@@ -13,16 +13,31 @@
             FontFamily="{DynamicResource MaterialDesignFont}"
         
         xmlns:local="clr-namespace:InveTime"
+        xmlns:cmd="clr-namespace:InveTime.Commands"
         DataContext="{Binding AutorisationWindowViewModel, Source={StaticResource Locator}}"
         
         Title="{Binding Title}" 
         Height="300" Width="400">
     <DockPanel>
-        <Label Content="Добро пожаловать" FontSize="20" HorizontalAlignment="Center" Height="auto" Margin="5" DockPanel.Dock="Top"/>
+        <Label Content="Добро пожаловать" 
+               FontSize="20" 
+               HorizontalAlignment="Center" 
+               Height="auto" Margin="5" 
+               DockPanel.Dock="Top"/>
         
-        <Grid Height="50" Margin="10" DockPanel.Dock="Bottom">
-            <Button Content="Вход" HorizontalAlignment="Left" Width="150"/>
-            <Button Content="Выход" HorizontalAlignment="Right" Width="150"/>
+        <Grid Height="50" 
+              Margin="10" 
+              DockPanel.Dock="Bottom">
+            <Button Content="Вход" 
+                    HorizontalAlignment="Left" 
+                    Width="150"/>
+            <Button Content="Выход" 
+                    HorizontalAlignment="Right" 
+                    Width="150">
+                <Button.Command>
+                    <cmd:CloseAppCommand/>
+                </Button.Command>
+            </Button>
         </Grid>
         
         <StackPanel Margin="5">

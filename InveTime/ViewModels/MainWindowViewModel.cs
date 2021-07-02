@@ -29,18 +29,18 @@ namespace InveTime.ViewModels
 
         #region Commands
 
-        
-        
+
+
         #region CloseAppCommand
 
-        public ICommand CloseAppCommand { get; }
+        //public icommand closeappcommand { get; }
 
-        public bool CanCloseAppCommandExequte(object p) => true;
+        //public bool cancloseappcommandexequte(object p) => true;
 
-        public void OnCloseAppCommandExequted(object p)
-        {
-            Application.Current.Shutdown();
-        }
+        //public void oncloseappcommandexequted(object p)
+        //{
+        //    application.current.shutdown();
+        //}
 
 
         #endregion

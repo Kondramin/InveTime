@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             
         xmlns:local="clr-namespace:InveTime"
+        xmlns:cmd="clr-namespace:InveTime.Commands"
         DataContext="{Binding MainWindowViewModel, Source={StaticResource Locator}}"
        
         Title="{Binding Title}" 
@@ -19,7 +20,11 @@
                 </MenuItem>
                 <Separator />
                 <MenuItem Header="Сменить пользователя" ></MenuItem>
-                <MenuItem Header="Выход" Command="{Binding CloseAppCommand}"></MenuItem>
+                <MenuItem Header="Выход" >
+                    <MenuItem.Command>
+                        <cmd:CloseAppCommand/>
+                    </MenuItem.Command>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="Инвертаризация" >
                 <MenuItem Header="Начать инвентаризацию"></MenuItem>

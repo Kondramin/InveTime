@@ -9,11 +9,11 @@ namespace InveTime.ViewModels
     class AutorisationWindowViewModel : ViewModel
     {
         private readonly IRepository<Employee> _EmployeeRepository;
-        private readonly IPasswordSupplier _PasswordSupplier;
+        //private readonly IPasswordSupplier _PasswordSupplier;
 
 
 
-        #region string AutorisationWindow Title  = "InveTime"
+        #region string AutorisationWindow Title  = "Авторизация в системе"
 
         private string _Title = "Авторизация в системе";
         /// <summary>AutorisationWindow Title</summary>
@@ -55,11 +55,11 @@ namespace InveTime.ViewModels
 
 
         public AutorisationWindowViewModel(
-            IRepository<Employee> EmployeeRepository,
-            IPasswordSupplier PasswordSupplier)
+            IRepository<Employee> EmployeeRepository
+            /*IPasswordSupplier PasswordSupplier*/)
         {
             _EmployeeRepository = EmployeeRepository;
-            _PasswordSupplier = PasswordSupplier;
+            //_PasswordSupplier = PasswordSupplier;
         }
     }
 }
