@@ -47,7 +47,7 @@
                 materialDesign:HintAssist.Hint="Введите логин" 
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
             <PasswordBox                
-                x:Name="pwdBox"
+                
                 Margin="20"
                 materialDesign:HintAssist.Hint="Введите пароль" 
                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Cursor="IBeam"/>
