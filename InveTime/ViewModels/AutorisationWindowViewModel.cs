@@ -1,15 +1,18 @@
-﻿using InveTime.DataBase.DLL.Entityes;
+﻿using InveTime.Commands.Base;
+using InveTime.DataBase.DLL.Entityes;
 using InveTime.Interfaces;
-using InveTime.Services.Interface;
 using InveTime.ViewModels.Base;
-using System.Security;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace InveTime.ViewModels
 {
     class AutorisationWindowViewModel : ViewModel
     {
         private readonly IRepository<Employee> _EmployeeRepository;
-        //private readonly IPasswordSupplier _PasswordSupplier;
+        
 
 
 
@@ -28,7 +31,7 @@ namespace InveTime.ViewModels
 
         #region string AutorisationWindow LoginTextBox
 
-        private string _LoginTextBox;
+        private string _LoginTextBox = null;
         /// <summary>AutorisationWindow LoginTextBox</summary>
         public string LoginTextBox
         {
@@ -39,15 +42,26 @@ namespace InveTime.ViewModels
         #endregion
 
 
-        #region SecureString AutorisationWindow PasswordTextBox
+        #region Commands
 
-        private SecureString _PasswordTextBox;
-        /// <summary>AutorisationWindow PasswordTextBox</summary>
-        public SecureString PasswordTextBox
+        #region AutorisationCommand
+
+        public ICommand AutorisationCommand { get; }
+
+        private void OnAutorisationCommandExequted(object p) 
         {
-            get => _PasswordTextBox;
-            set => Set(ref _PasswordTextBox, value);
+            PasswordBox pwdBox = p as PasswordBox;
+            var Employees = _EmployeeRepository.Items.Where(p => p.Login == _LoginTextBox).ToList();
+            if(Employees is null)
+            {
+                MessageBox.Show("Не верный логин или пароль");
+            }
+            
         }
+
+        private bool CanAutorisationCommandExequte(object p) => true;
+
+        #endregion
 
         #endregion
 
@@ -56,10 +70,19 @@ namespace InveTime.ViewModels
 
         public AutorisationWindowViewModel(
             IRepository<Employee> EmployeeRepository
-            /*IPasswordSupplier PasswordSupplier*/)
+            )
         {
             _EmployeeRepository = EmployeeRepository;
-            //_PasswordSupplier = PasswordSupplier;
+
+            AutorisationCommand = new LambdaCommand(OnAutorisationCommandExequted, CanAutorisationCommandExequte);
+
+            #region Commands
+
+
+
+            #endregion
+
+
         }
     }
 }

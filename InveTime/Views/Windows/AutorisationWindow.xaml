@@ -14,6 +14,7 @@
         
         xmlns:local="clr-namespace:InveTime"
         xmlns:cmd="clr-namespace:InveTime.Commands"
+        WindowStartupLocation="CenterScreen"
         DataContext="{Binding AutorisationWindowViewModel, Source={StaticResource Locator}}"
         
         Title="{Binding Title}" 
@@ -28,7 +29,9 @@
         <Grid Height="50" 
               Margin="10" 
               DockPanel.Dock="Bottom">
-            <Button Content="Вход" 
+            <Button Content="Вход"
+                    Command="{Binding AutorisationCommand}"
+                    CommandParameter="{Binding ElementName=pwdBox}"
                     HorizontalAlignment="Left" 
                     Width="150"/>
             <Button Content="Выход" 
@@ -47,7 +50,7 @@
                 materialDesign:HintAssist.Hint="Введите логин" 
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
             <PasswordBox                
-                
+                x:Name="pwdBox"
                 Margin="20"
                 materialDesign:HintAssist.Hint="Введите пароль" 
                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Cursor="IBeam"/>
