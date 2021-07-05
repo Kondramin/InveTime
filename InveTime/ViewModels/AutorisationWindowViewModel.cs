@@ -31,7 +31,7 @@ namespace InveTime.ViewModels
 
         #region string AutorisationWindow LoginTextBox
 
-        private string _LoginTextBox = null;
+        private string _LoginTextBox;
         /// <summary>AutorisationWindow LoginTextBox</summary>
         public string LoginTextBox
         {
@@ -48,18 +48,21 @@ namespace InveTime.ViewModels
 
         public ICommand AutorisationCommand { get; }
 
-        private void OnAutorisationCommandExequted(object p) 
+        private void OnAutorisationCommandExequted(object p)
         {
 
             PasswordBox pwdBox = p as PasswordBox;
 
-            if (!_EmployeeRepository.Items.Select(p=>p.Login).Contains(LoginTextBox))
+            if (!(_EmployeeRepository.Items.Select(p => p.Login).Contains(_LoginTextBox)))
             {
-                MessageBox.Show("Не верный логин или пароль");
-
+                MessageBox.Show("Не верный логин");
+                LoginTextBox = "";
             }
-            
-            
+            else if (!(_EmployeeRepository.Items.Where(p => p.Login == _LoginTextBox).Select(p => p.Password).Contains(pwdBox.Password)))
+            {
+                MessageBox.Show("Не верный пароль");
+                pwdBox.Password = "";
+            }
         }
 
         private bool CanAutorisationCommandExequte(object p) => true;
