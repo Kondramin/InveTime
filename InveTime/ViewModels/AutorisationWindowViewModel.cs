@@ -50,12 +50,15 @@ namespace InveTime.ViewModels
 
         private void OnAutorisationCommandExequted(object p) 
         {
+
             PasswordBox pwdBox = p as PasswordBox;
-            var Employees = _EmployeeRepository.Items.Where(p => p.Login == _LoginTextBox).ToList();
-            if(Employees is null)
+
+            if (!_EmployeeRepository.Items.Select(p=>p.Login).Contains(LoginTextBox))
             {
                 MessageBox.Show("Не верный логин или пароль");
+
             }
+            
             
         }
 
