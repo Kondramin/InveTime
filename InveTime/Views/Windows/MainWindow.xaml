@@ -9,7 +9,7 @@
         DataContext="{Binding MainWindowViewModel, Source={StaticResource Locator}}"
         WindowStartupLocation="CenterScreen"
         Title="{Binding Title}" 
-        MinHeight="800" MinWidth="1200">
+        MinHeight="700" MinWidth="1000">
     <DockPanel>
         <Menu DockPanel.Dock="Top" IsMainMenu="True">
             <MenuItem Header="Общее">
@@ -42,6 +42,17 @@
             <MenuItem Header="О программе" ></MenuItem>
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock Text="В системе: "/>
+            </StatusBarItem>
+            <StatusBarItem 
+                MinWidth="150" MaxWidth="300">
+                <TextBlock 
+                    Text="{Binding Status}"/>
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Text="Должность: "/>
+            </StatusBarItem>
             <StatusBarItem 
                 MinWidth="150" MaxWidth="300">
                 <TextBlock 
@@ -54,21 +65,31 @@
             </StatusBarItem>
         </StatusBar>
         <Grid Margin="10">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                
+                <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions >
+                <RowDefinition Height="350"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
             <Calendar 
-                Grid.Column="0" Grid.Row="0"
+                Grid.Column="2" Grid.Row="0"
+                
                 Margin="7"
                 />
-            
+            <StackPanel 
+                Grid.RowSpan="2"
+                Margin="10">
+                <Label 
+                    Content="Результаты последней Инвентаризации:"
+                    FontSize="30" 
+                    FontWeight="Bold" 
+                    HorizontalAlignment="Left" 
+                    >
+                </Label>
+            </StackPanel>
         </Grid>
-
     </DockPanel>
 </Window>
