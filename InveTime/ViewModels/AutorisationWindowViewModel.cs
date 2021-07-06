@@ -13,20 +13,6 @@ namespace InveTime.ViewModels
 
 
 
-
-        #region string AutorisationWindow Title  = "Авторизация в системе"
-
-        private string _Title = "Авторизация в системе";
-        /// <summary>AutorisationWindow Title</summary>
-        public string Title
-        {
-            get => _Title;
-            set => Set(ref _Title, value);
-        }
-
-        #endregion
-
-
         #region string AutorisationWindow LoginTextBox
 
         private string _LoginTextBox;
@@ -38,6 +24,7 @@ namespace InveTime.ViewModels
         }
 
         #endregion
+
 
 
         #region Commands
@@ -71,24 +58,20 @@ namespace InveTime.ViewModels
 
         #endregion
 
-
-
-
-        public AutorisationWindowViewModel(
-            IAutorisationService autorisationService 
-            )
+        
+        
+        public AutorisationWindowViewModel(IAutorisationService autorisationService)
         {
-                        
+            
             _AutorisationService = autorisationService;
-
-
-
+            
+            
+            
             #region Commands
 
             AutorisationCommand = new LambdaCommand(OnAutorisationCommandExequted, CanAutorisationCommandExequte);
 
             #endregion
-
 
         }
     }

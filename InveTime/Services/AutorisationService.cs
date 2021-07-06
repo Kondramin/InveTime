@@ -9,12 +9,20 @@ namespace InveTime.Services
 {
     internal class AutorisationService : IAutorisationService
     {
+
+
         private readonly IRepository<Employee> _EmployeeRepository;
+
+
+
 
         public AutorisationService(IRepository<Employee> employeeRepository)
         {
             _EmployeeRepository = employeeRepository;
         }
+
+
+
 
         public bool ValidateLoginAndPassword(string login, string password)
         {

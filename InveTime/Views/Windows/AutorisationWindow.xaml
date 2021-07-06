@@ -17,10 +17,11 @@
         WindowStartupLocation="CenterScreen"
         DataContext="{Binding AutorisationWindowViewModel, Source={StaticResource Locator}}"
         
-        Title="{Binding Title}" 
+        Title="Авторизация в системе" 
         Height="300" Width="400">
     <DockPanel>
-        <Label Content="Добро пожаловать" 
+        
+        <Label Content="Введите ваш логин и пароль" 
                FontSize="20" 
                HorizontalAlignment="Center" 
                Height="auto" Margin="5" 
