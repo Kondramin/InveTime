@@ -1,8 +1,6 @@
 ﻿using InveTime.Commands.Base;
-using InveTime.DataBase.DLL.Entityes;
-using InveTime.Interfaces;
+using InveTime.Services.Interface;
 using InveTime.ViewModels.Base;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -10,9 +8,9 @@ using System.Windows.Input;
 namespace InveTime.ViewModels
 {
     class AutorisationWindowViewModel : ViewModel
-    {
-        private readonly IRepository<Employee> _EmployeeRepository;
-        
+    {   
+        private readonly IAutorisationService _AutorisationService;
+
 
 
 
@@ -53,16 +51,18 @@ namespace InveTime.ViewModels
 
             PasswordBox pwdBox = p as PasswordBox;
 
-            if (!(_EmployeeRepository.Items.Select(p => p.Login).Contains(_LoginTextBox)))
+            if (_AutorisationService.ValidateLoginAndPassword(_LoginTextBox, pwdBox.Password))
             {
-                MessageBox.Show("Не верный логин");
-                LoginTextBox = "";
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                Application.Current.MainWindow.Close();
             }
-            else if (!(_EmployeeRepository.Items.Where(p => p.Login == _LoginTextBox).Select(p => p.Password).Contains(pwdBox.Password)))
+            else
             {
-                MessageBox.Show("Не верный пароль");
+                LoginTextBox = "";
                 pwdBox.Password = "";
             }
+
         }
 
         private bool CanAutorisationCommandExequte(object p) => true;
@@ -75,16 +75,17 @@ namespace InveTime.ViewModels
 
 
         public AutorisationWindowViewModel(
-            IRepository<Employee> EmployeeRepository
+            IAutorisationService autorisationService 
             )
         {
-            _EmployeeRepository = EmployeeRepository;
+                        
+            _AutorisationService = autorisationService;
 
-            AutorisationCommand = new LambdaCommand(OnAutorisationCommandExequted, CanAutorisationCommandExequte);
+
 
             #region Commands
 
-
+            AutorisationCommand = new LambdaCommand(OnAutorisationCommandExequted, CanAutorisationCommandExequte);
 
             #endregion
 
