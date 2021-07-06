@@ -21,41 +21,52 @@
         Height="300" Width="400">
     <DockPanel>
         
-        <Label Content="Введите ваш логин и пароль" 
-               FontSize="20" 
-               HorizontalAlignment="Center" 
-               Height="auto" Margin="5" 
-               DockPanel.Dock="Top"/>
+        <Label 
+            Content="Введите ваш логин и пароль" 
+            FontSize="20" HorizontalAlignment="Center" 
+            Height="auto" Margin="5" 
+            DockPanel.Dock="Top"/>
         
-        <Grid Height="50" 
-              Margin="10" 
-              DockPanel.Dock="Bottom">
-            <Button Content="Вход"
-                    Command="{Binding AutorisationCommand}"
-                    CommandParameter="{Binding ElementName=pwdBox}"
-                    HorizontalAlignment="Left" 
-                    Width="150"/>
-            <Button Content="Выход" 
-                    HorizontalAlignment="Right" 
-                    Width="150">
+        <Grid
+            Height="50" 
+            Margin="10" 
+            DockPanel.Dock="Bottom">
+            
+            <Button 
+                Content="Вход"
+                Command="{Binding AutorisationCommand}"
+                CommandParameter="{Binding ElementName=pwdBox}"
+                HorizontalAlignment="Left" 
+                Width="150"/>
+            
+            <Button
+                Content="Выход" 
+                HorizontalAlignment="Right" 
+                Width="150">
                 <Button.Command>
                     <cmd:CloseAppCommand/>
                 </Button.Command>
             </Button>
+            
         </Grid>
         
-        <StackPanel Margin="5">
+        <StackPanel 
+            Margin="5">
+            
             <TextBox
                 Text="{Binding Path=LoginTextBox}"
                 Margin="20" 
                 materialDesign:HintAssist.Hint="Введите логин" 
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            
             <PasswordBox                
                 x:Name="pwdBox"
                 Margin="20"
                 materialDesign:HintAssist.Hint="Введите пароль" 
                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Cursor="IBeam"/>
+            
         </StackPanel>
 
     </DockPanel>
+    
 </Window>

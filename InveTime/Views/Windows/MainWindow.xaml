@@ -11,44 +11,69 @@
         Title="{Binding Title}" 
         MinHeight="700" MinWidth="1000">
     <DockPanel>
-        <Menu DockPanel.Dock="Top" IsMainMenu="True">
-            <MenuItem Header="Общее">
-                <MenuItem Header="Календарь событий" ></MenuItem>
-                <MenuItem Header="Сотрудники" >
-                    <MenuItem Header="Открыть список"></MenuItem>
-                    <MenuItem Header="Добавить сотрудника" ></MenuItem>
+        <Menu 
+            DockPanel.Dock="Top" 
+            IsMainMenu="True">
+            <MenuItem 
+                Header="Общее">
+                <MenuItem 
+                    Header="Календарь событий"></MenuItem>
+                <MenuItem 
+                    Header="Сотрудники">
+                    <MenuItem 
+                        Header="Открыть список"></MenuItem>
+                    <MenuItem 
+                        Header="Добавить сотрудника"></MenuItem>
                 </MenuItem>
-                <Separator />
-                <MenuItem Header="Сменить пользователя" ></MenuItem>
-                <MenuItem Header="Выход" >
+                
+                <Separator/>
+                
+                <MenuItem 
+                    Header="Сменить пользователя"></MenuItem>
+                <MenuItem 
+                    Header="Выход">
                     <MenuItem.Command>
                         <cmd:CloseAppCommand/>
                     </MenuItem.Command>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Инвертаризация" >
-                <MenuItem Header="Начать инвентаризацию"></MenuItem>
-                <MenuItem Header="Запланировать инвентаризацию"></MenuItem>
-                <MenuItem Header="История"></MenuItem>
+            <MenuItem 
+                Header="Инвертаризация">
+                <MenuItem 
+                    Header="Начать инвентаризацию"></MenuItem>
+                <MenuItem
+                    Header="Запланировать инвентаризацию"></MenuItem>
+                <MenuItem 
+                    Header="История"></MenuItem>
             </MenuItem>
-            <MenuItem Header="Настройки">
-                <MenuItem Header="Рассылка">
-                    <MenuItem Header="Запустить рассылку"></MenuItem>
-                    <MenuItem Header="Создать новую"></MenuItem>
-                    <MenuItem Header="Сохранённые рассылки"></MenuItem>
+            <MenuItem 
+                Header="Настройки">
+                <MenuItem 
+                    Header="Рассылка">
+                    <MenuItem 
+                        Header="Запустить рассылку"></MenuItem>
+                    <MenuItem 
+                        Header="Создать новую"></MenuItem>
+                    <MenuItem 
+                        Header="Сохранённые рассылки"></MenuItem>
                 </MenuItem>
-                <MenuItem Header="Время/дата"></MenuItem>
+                <MenuItem 
+                    Header="Время/дата"></MenuItem>
             </MenuItem>
-            <MenuItem Header="О программе" ></MenuItem>
+            <MenuItem 
+                Header="О программе"></MenuItem>
         </Menu>
-        <StatusBar DockPanel.Dock="Bottom">
+        
+        <StatusBar 
+            DockPanel.Dock="Bottom">
             <StatusBarItem>
-                <TextBlock Text="В системе: "/>
+                <TextBlock 
+                    Text="В системе: "/>
             </StatusBarItem>
             <StatusBarItem 
                 MinWidth="150" MaxWidth="300">
                 <TextBlock 
-                    Text="{Binding Status}"/>
+                    Text="test"/>
             </StatusBarItem>
             <StatusBarItem>
                 <TextBlock Text="Должность: "/>
@@ -56,7 +81,7 @@
             <StatusBarItem 
                 MinWidth="150" MaxWidth="300">
                 <TextBlock 
-                    Text="{Binding Status}"/>
+                    Text="test"/>
             </StatusBarItem>
             <StatusBarItem>
                 <ProgressBar 
@@ -64,57 +89,63 @@
                     Value="{Binding Progress}"/>
             </StatusBarItem>
         </StatusBar>
-        <Grid Margin="10">
+        
+        <Grid 
+            Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition 
+                    Width="0.5*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions >
-                <RowDefinition Height="350"/>
+                <RowDefinition 
+                    Height="350"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Calendar 
+            <Calendar
+                Language="ru"
                 Grid.Row="0" Grid.Column="2"
-                Margin="7"
-                />
+                Margin="7"/>
             <Grid
-                Grid.Row="1" Grid.Column="2"
-                >
+                Grid.Row="1" Grid.Column="2">
                 <Grid.RowDefinitions>
-                    <RowDefinition MinHeight="60"/>
-                    <RowDefinition MinHeight="30"/>
-                    <RowDefinition MinHeight="40"/>
+                    <RowDefinition 
+                        MinHeight="60"/>
+                    <RowDefinition 
+                        MinHeight="30"/>
+                    <RowDefinition 
+                        MinHeight="40"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <TextBlock
                     Grid.Row="0"
                     Text="Дата ближайшей инвентаризации:"
-                    FontSize="20" FontWeight="Bold" TextWrapping="Wrap"
-                    />
+                    FontSize="20" FontWeight="Bold" TextWrapping="Wrap"/>
                 <TextBlock
                     Grid.Row="1"
                     Text="test"
-                    FontSize="20" HorizontalAlignment="Center"
-                    />
+                    FontSize="20" HorizontalAlignment="Center"/>
                 <TextBlock
                     Grid.Row="2"
                     Text="Ответственный:"
-                    FontSize="20" FontWeight="Bold" TextWrapping="Wrap"
-                    />
+                    FontSize="20" FontWeight="Bold" TextWrapping="Wrap"/>
                 <TextBlock
                     Grid.Row="3"
                     Text="test"
-                    FontSize="20" TextWrapping="Wrap" HorizontalAlignment="Center"
-                    />
+                    FontSize="20" TextWrapping="Wrap" HorizontalAlignment="Center"/>
             </Grid>
+            
             <Grid
                 Margin="7"
                 Grid.RowSpan="2">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="55"/>
-                    <RowDefinition Height="45"/>
+                    <RowDefinition 
+                        Height="55"/>
+                    <RowDefinition 
+                        Height="45"/>
                     <RowDefinition/>
-                    <RowDefinition Height="45"/>
+                    <RowDefinition 
+                        Height="45"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -125,70 +156,36 @@
                     Content="Результаты последней Инвентаризации:"
                     FontSize="30" FontWeight="Bold" 
                     HorizontalAlignment="Left"
-                    Grid.Row="0" Grid.ColumnSpan="2"
-                    />
+                    Grid.Row="0" Grid.ColumnSpan="2"/>
                 <Label
                     Content="Недостача"
                     Grid.Row="1" Grid.Column="0"
                     Margin="15,0,0,10"
-                    FontSize="21" FontWeight="Bold"
-                    />
+                    FontSize="21" FontWeight="Bold"/>
                 <DataGrid
                     Margin="5"
-                    Grid.Row="2" Grid.Column="0"
-                    >
-                    
-                </DataGrid>
+                    Grid.Row="2" Grid.Column="0"></DataGrid>
                 <Label
                     Content="Излишки"
                     Grid.Row="1" Grid.Column="1"
                     Margin="15,0,0,10"
-                    FontSize="21" FontWeight="Bold"                    
-                    />
+                    FontSize="21" FontWeight="Bold"/>
                 <DataGrid
                     Margin="5"
-                    Grid.Row="2" Grid.Column="1"
-                    >
-
-                </DataGrid>
+                    Grid.Row="2" Grid.Column="1"></DataGrid>
                 <Label
                     Content="Пересорт"
                     Grid.Row="3" Grid.ColumnSpan="2"
                     HorizontalAlignment="Center"
-                    FontSize="21" FontWeight="Bold"  
-                    />
+                    FontSize="21" FontWeight="Bold"/>
                 <DataGrid
                     Margin="5"
-                    Grid.Row="4" Grid.Column="0"
-                    >
-
-                </DataGrid>
+                    Grid.Row="4" Grid.Column="0"></DataGrid>
                 <DataGrid
                     Margin="5"
-                    Grid.Row="4" Grid.Column="1"
-                    >
-
-                </DataGrid>
+                    Grid.Row="4" Grid.Column="1"></DataGrid>
             </Grid>
-            <!--
-                    
-                    <DataGrid Grid.Column="0" Grid.Row="1">
-                        
-                    </DataGrid>
-                    
-                    <DataGrid Grid.Column="1" Grid.Row="1">
-
-                    </DataGrid>
-                </Grid>
-                <Label 
-                    Content="Пересорт:"
-                    FontSize="21" 
-                    FontWeight="Bold" 
-                    HorizontalAlignment="Left" 
-                    >
-                </Label>
-                
-            </Grid>-->
+            
         </Grid>
     </DockPanel>
 </Window>
