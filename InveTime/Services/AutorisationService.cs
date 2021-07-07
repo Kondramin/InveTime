@@ -38,6 +38,9 @@ namespace InveTime.Services
             }
             return true;
         }
+
+        public Employee FixedAutorisatedUser(string login, string password) => _EmployeeRepository.Items.SingleOrDefault(p=> p.Login == login || p.Password == password);
+        
     }
 }
 

@@ -40,9 +40,11 @@ namespace InveTime.ViewModels
 
             if (_AutorisationService.ValidateLoginAndPassword(_LoginTextBox, pwdBox.Password))
             {
+                MainWindowViewModel.AutorisatedUser = _AutorisationService.FixedAutorisatedUser(LoginTextBox, pwdBox.Password);
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
                 Application.Current.MainWindow.Close();
+                
             }
             else
             {

@@ -73,7 +73,7 @@
             <StatusBarItem 
                 MinWidth="150" MaxWidth="300">
                 <TextBlock 
-                    Text="test"/>
+                    Text="{Binding AutorisatedUserName}"/>
             </StatusBarItem>
             <StatusBarItem>
                 <TextBlock Text="Должность: "/>
@@ -81,7 +81,7 @@
             <StatusBarItem 
                 MinWidth="150" MaxWidth="300">
                 <TextBlock 
-                    Text="test"/>
+                    Text="{Binding AutorisatedUserPositionName}"/>
             </StatusBarItem>
             <StatusBarItem>
                 <ProgressBar 

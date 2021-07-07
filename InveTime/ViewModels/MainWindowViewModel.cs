@@ -12,6 +12,9 @@ namespace InveTime.ViewModels
 {
     class MainWindowViewModel : ViewModel
     {
+        internal static Employee AutorisatedUser;
+
+
 
         #region string MainWindow Title  = "InveTime"
 
@@ -25,6 +28,29 @@ namespace InveTime.ViewModels
 
         #endregion
 
+        #region string MainWindow StatusBar Name = AutorisatedUser.Name
+
+        private string _AutorisatedUserName = AutorisatedUser.Name;
+        /// <summary>MainWindow StatusBar Name = AutorisatedUser.Name</summary>
+        public string AutorisatedUserName
+        {
+            get => _AutorisatedUserName;
+            set => Set(ref _AutorisatedUserName, value);
+        }
+
+        #endregion
+
+        #region string MainWindow StatusBar Position.Name = AutorisatedUser.Position.Name
+
+        private string _AutorisatedUserPositionName = AutorisatedUser.Position.Name;
+        /// <summary>MainWindow StatusBar Position.Name = AutorisatedUser.Position.Name</summary>
+        public string AutorisatedUserPositionName
+        {
+            get => _AutorisatedUserPositionName;
+            set => Set(ref _AutorisatedUserPositionName, value);
+        }
+
+        #endregion
 
 
         #region Commands
