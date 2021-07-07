@@ -3,6 +3,7 @@ using InveTime.Services.Interface;
 using InveTime.ViewModels.Base;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace InveTime.ViewModels
@@ -44,6 +45,7 @@ namespace InveTime.ViewModels
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
                 Application.Current.MainWindow.Close();
+                Application.Current.MainWindow = mainWindow;
                 
             }
             else

@@ -17,19 +17,19 @@
             <MenuItem 
                 Header="Общее">
                 <MenuItem 
-                    Header="Календарь событий"></MenuItem>
+                    Header="Календарь событий"/>
                 <MenuItem 
                     Header="Сотрудники">
                     <MenuItem 
-                        Header="Открыть список"></MenuItem>
+                        Header="Открыть список"/>
                     <MenuItem 
-                        Header="Добавить сотрудника"></MenuItem>
+                        Header="Добавить сотрудника"/>
                 </MenuItem>
                 
                 <Separator/>
-                
+
                 <MenuItem 
-                    Header="Сменить пользователя"></MenuItem>
+                    Header="Сменить пользователя" Command="{Binding ReAutorisationCommand}"/>
                 <MenuItem 
                     Header="Выход">
                     <MenuItem.Command>
@@ -40,28 +40,28 @@
             <MenuItem 
                 Header="Инвертаризация">
                 <MenuItem 
-                    Header="Начать инвентаризацию"></MenuItem>
+                    Header="Начать инвентаризацию"/>
                 <MenuItem
-                    Header="Запланировать инвентаризацию"></MenuItem>
+                    Header="Запланировать инвентаризацию"/>
                 <MenuItem 
-                    Header="История"></MenuItem>
+                    Header="История"/>
             </MenuItem>
             <MenuItem 
                 Header="Настройки">
                 <MenuItem 
                     Header="Рассылка">
                     <MenuItem 
-                        Header="Запустить рассылку"></MenuItem>
+                        Header="Запустить рассылку"/>
                     <MenuItem 
-                        Header="Создать новую"></MenuItem>
+                        Header="Создать новую"/>
                     <MenuItem 
-                        Header="Сохранённые рассылки"></MenuItem>
+                        Header="Сохранённые рассылки"/>
                 </MenuItem>
                 <MenuItem 
-                    Header="Время/дата"></MenuItem>
+                    Header="Время/дата"/>
             </MenuItem>
             <MenuItem 
-                Header="О программе"></MenuItem>
+                Header="О программе"/>
         </Menu>
         
         <StatusBar 
@@ -73,7 +73,7 @@
             <StatusBarItem 
                 MinWidth="150" MaxWidth="300">
                 <TextBlock 
-                    Text="{Binding AutorisatedUserName}"/>
+                    Text="{Binding AutorisatedUserName}" />
             </StatusBarItem>
             <StatusBarItem>
                 <TextBlock Text="Должность: "/>
@@ -129,9 +129,9 @@
                     Grid.Row="2"
                     Text="Ответственный:"
                     FontSize="20" FontWeight="Bold" TextWrapping="Wrap"/>
-                <TextBlock
+                <TextBox
                     Grid.Row="3"
-                    Text="test"
+                    Text="{Binding Path=AutorisatedUserName,UpdateSourceTrigger=PropertyChanged}"
                     FontSize="20" TextWrapping="Wrap" HorizontalAlignment="Center"/>
             </Grid>
             

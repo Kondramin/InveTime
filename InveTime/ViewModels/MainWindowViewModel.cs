@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 using InveTime.Services;
 using InveTime.Services.Interface;
+using InveTime.Views.Windows;
 
 namespace InveTime.ViewModels
 {
@@ -71,12 +72,41 @@ namespace InveTime.ViewModels
 
         #endregion
 
+        #region ReAutorisationCommand
+
+        public ICommand ReAutorisationCommand { get; }
+
+        public bool CanReAutorisationCommandExequte(object p) => true;
+
+        public void OnReAutorisationCommandExequted(object p)
+        {   
+            var autWindow = new AutorisationWindow();
+            autWindow.Show();
+            Application.Current.MainWindow.Close();
+            Application.Current.MainWindow = autWindow;
+        }
 
 
         #endregion
 
 
 
+        #endregion
+
+
+
+        public MainWindowViewModel()
+        {
+
+
+            #region Commands
+
+            ReAutorisationCommand = new LambdaCommand(OnReAutorisationCommandExequted, CanReAutorisationCommandExequte);
+
+            #endregion
+
+
+        }
         //public MainWindowViewModel()
         //{
 
