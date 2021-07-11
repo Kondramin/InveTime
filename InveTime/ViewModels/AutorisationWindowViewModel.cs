@@ -47,6 +47,7 @@ namespace InveTime.ViewModels
                 Application.Current.MainWindow.Close();
                 Application.Current.MainWindow = mainWindow;
                 
+                
             }
             else
             {

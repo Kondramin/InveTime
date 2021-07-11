@@ -29,9 +29,9 @@ namespace InveTime.ViewModels
 
         #endregion
 
-        #region string MainWindow StatusBar Name = AutorisatedUser.Name
+        #region string MainWindow StatusBar Name
 
-        private string _AutorisatedUserName = AutorisatedUser.Name;
+        private string _AutorisatedUserName;
         /// <summary>MainWindow StatusBar Name = AutorisatedUser.Name</summary>
         public string AutorisatedUserName
         {
@@ -41,9 +41,9 @@ namespace InveTime.ViewModels
 
         #endregion
 
-        #region string MainWindow StatusBar Position.Name = AutorisatedUser.Position.Name
+        #region string MainWindow StatusBar Position.Name
 
-        private string _AutorisatedUserPositionName = AutorisatedUser.Position.Name;
+        private string _AutorisatedUserPositionName;
         /// <summary>MainWindow StatusBar Position.Name = AutorisatedUser.Position.Name</summary>
         public string AutorisatedUserPositionName
         {
@@ -84,6 +84,7 @@ namespace InveTime.ViewModels
             autWindow.Show();
             Application.Current.MainWindow.Close();
             Application.Current.MainWindow = autWindow;
+            
         }
 
 
@@ -97,6 +98,7 @@ namespace InveTime.ViewModels
 
         public MainWindowViewModel()
         {
+            
 
 
             #region Commands

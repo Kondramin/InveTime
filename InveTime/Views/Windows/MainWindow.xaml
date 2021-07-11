@@ -6,9 +6,11 @@
             
         xmlns:local="clr-namespace:InveTime"
         xmlns:cmd="clr-namespace:InveTime.Commands"
+        
         DataContext="{Binding MainWindowViewModel, Source={StaticResource Locator}}"
         WindowStartupLocation="CenterScreen"
-        Title="{Binding Title}" 
+        Title="{Binding Title}"
+        Name="Wondow" 
         MinHeight="700" MinWidth="1000">
     <DockPanel>
         <Menu 
@@ -73,7 +75,9 @@
             <StatusBarItem 
                 MinWidth="150" MaxWidth="300">
                 <TextBlock 
-                    Text="{Binding AutorisatedUserName}" />
+                    Text="{Binding AutorisatedUserName, NotifyOnSourceUpdated=True}">
+                    
+                </TextBlock>
             </StatusBarItem>
             <StatusBarItem>
                 <TextBlock Text="Должность: "/>
